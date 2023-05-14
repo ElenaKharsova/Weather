@@ -22,5 +22,6 @@ module.exports = {
     "comma-dangle": "off",
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
+    "no-plusplus": "off",
   },
 };

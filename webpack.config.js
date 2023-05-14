@@ -8,9 +8,9 @@ module.exports = (env) => ({
   output: {
     path: resolve(__dirname, "dist"), // выходной файл складывать в папку dist
     filename: "[name]-[hash].js", // имя выходного файла каждый раз новое с хешом
-    clean: {
-      dry: true, // каждый раз очищаем выходной файл, кроме статических ресурсов
-    },
+    clean: true, // {
+    //   dry: true, // каждый раз очищаем выходной файл, кроме статических ресурсов
+    // },
     environment: {
       arrowFunction: false, // отключаем оборачивание всего кода в стрелочную функцию
     },
@@ -20,7 +20,7 @@ module.exports = (env) => ({
   devServer: {
     compress: true,
     port: 9000,
-    watchFiles: ["*.html", "*.css"], // следить за изменениями в html и css
+    watchFiles: ["*.html", "*.css", "*.png", "*.jpe?g", "*.gif", "*.svg"], // следить за изменениями в html и css
   },
   module: {
     rules: [
