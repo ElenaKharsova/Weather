@@ -1,2 +1,0 @@
-!function(){"use strict";document.querySelector("#weatherApp").innerHTML='<header class = "header">\n        <img class="icon" alt="pin" src="./src/images/location2.png"/>\n        <p>Your location</p>\n    </header>\n    <nav class ="cities">\n        <ul>\n            <li>First city</li>\n        </ul>\n    </nav>\n    '}();
-//# sourceMappingURL=main-d414fc56164f520ef3e3.js.map
