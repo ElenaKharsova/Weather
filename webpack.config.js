@@ -20,7 +20,15 @@ module.exports = (env) => ({
   devServer: {
     compress: true,
     port: 9000,
-    watchFiles: ["*.html", "*.css", "*.png", "*.jpe?g", "*.gif", "*.svg"], // следить за изменениями в html и css
+    watchFiles: [
+      "*.html",
+      "*.css",
+      "*.png",
+      "*.jpe?g",
+      "*.gif",
+      "*.svg",
+      "*.webp",
+    ], // следить за изменениями в html и css
   },
   module: {
     rules: [
@@ -36,12 +44,19 @@ module.exports = (env) => ({
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: "asset/resource",
         generator: {
           filename: "static/[hash][ext][query]",
         },
       },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/i,
+      //   loader: "file-loader",
+      //   options: {
+      //     name: "static/[hash][ext][query]",
+      //   },
+      // },
       {
         test: /\.html$/i,
         loader: "html-loader",

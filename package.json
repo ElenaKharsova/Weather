@@ -55,5 +55,8 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.{js,css}": "prettier --write"
+  },
+  "dependencies": {
+    "file-loader": "^6.2.0"
   }
 }
