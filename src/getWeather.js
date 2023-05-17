@@ -7,7 +7,10 @@ export async function getCurrentLocation() {
 
   let locationTimeout;
   const location = {
+    name: "",
     error: false,
+    latitude: null,
+    longitude: null,
   };
 
   async function geolocSuccess(position) {

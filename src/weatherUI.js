@@ -9,6 +9,8 @@ export function createWeatherUI(mainElement, location) {
     currentlocationLink = "#";
   } else {
     console.log(" location.name", location.name);
+    console.log(" location.error", location.error);
+
     currentLocation = location.name;
     currentlocationLink = `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
     // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
