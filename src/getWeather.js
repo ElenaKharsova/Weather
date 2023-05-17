@@ -7,22 +7,13 @@ export async function getCurrentLocation() {
 
   let locationTimeout;
   const location = {
-    name: "",
     error: false,
-    latitude: null,
-    longitude: null,
   };
 
-  async function geolocSuccess(position) {
+  function geolocSuccess(position) {
     clearTimeout(locationTimeout);
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
-    const apiKey = "20e031b2d73df17283a8750e66d1228e";
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
-    );
-    const json = await response.json();
-    location.name = json.name;
   }
 
   function geolocFail() {
@@ -37,6 +28,12 @@ export async function getCurrentLocation() {
       geolocFail,
       options
     );
+    const apiKey = "20e031b2d73df17283a8750e66d1228e";
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
+    );
+    const json = await response.json();
+    location.name = json.name;
   } else {
     geolocFail();
     location.error = true;
