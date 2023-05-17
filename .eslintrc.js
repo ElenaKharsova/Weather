@@ -23,5 +23,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
     "no-plusplus": "off",
+    "no-console": "off",
   },
 };
