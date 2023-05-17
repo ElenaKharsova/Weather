@@ -28,15 +28,17 @@ export async function getCurrentLocation() {
       geolocFail,
       options
     );
+  } else {
+    geolocFail();
+    location.error = true;
+  }
+  if (!location.error) {
     const apiKey = "20e031b2d73df17283a8750e66d1228e";
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
     );
     const json = await response.json();
     location.name = json.name;
-  } else {
-    geolocFail();
-    location.error = true;
   }
   return location;
 }
