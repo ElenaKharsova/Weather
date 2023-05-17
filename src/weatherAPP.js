@@ -7,12 +7,9 @@ export function createWeatherApp(mainElement) {
   currentLocationPromise
     .then((currentLocation) => {
       console.log("result", currentLocation);
-      // currentLocation = result;
       createWeatherUI(mainElement, currentLocation);
     })
     .catch((error) => {
       createWeatherUI(mainElement, error);
     });
-
-  // console.log("currentLocation", currentLocation);
 }
