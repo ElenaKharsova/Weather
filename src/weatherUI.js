@@ -1,8 +1,19 @@
 import * as images from "./imagesImports";
 
 export function createWeatherUI(mainElement, location) {
-  const currentLocation = location;
+  let currentLocation;
+  let currentlocationLink;
+  console.log(location);
+  if (location.error) {
+    currentLocation = "Your location is hidden";
+    currentlocationLink = "#";
+  } else {
+    currentLocation = location.name;
+    currentlocationLink = `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
+    // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
+  }
   // typeof location === Error ? "Your location is hidden" : location;
+
   mainElement.innerHTML = `
   <header class = "header">
     <div class = "location">
@@ -15,7 +26,9 @@ export function createWeatherUI(mainElement, location) {
         class = "img-weather"/> 
       <p class = "temperature" >31</p>
     </div>
-    <p class = "block">Mapa</p>
+    <div class = "block">
+        <img src= ${currentlocationLink}/>
+    </div>
   </header>
   <nav class = "block cities">
     <div>
@@ -26,7 +39,7 @@ export function createWeatherUI(mainElement, location) {
     </ul>
   </nav>
   `;
-  if (currentLocation !== "Your location is hidden") {
+  if (!location.error) {
     const ul = mainElement.querySelector("ul");
     const li = document.createElement("li");
     li.innerHTML = currentLocation;

@@ -13,12 +13,7 @@ module.exports = {
   plugins: ["jest"],
   rules: {
     quotes: [2, "double", { avoidEscape: true }],
-    "max-len": [
-      "error",
-      {
-        ignoreComments: true,
-      },
-    ],
+    "max-len": "off",
     "comma-dangle": "off",
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
