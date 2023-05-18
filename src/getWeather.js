@@ -1,6 +1,5 @@
 export async function getCurrentLocation() {
   console.log("getCurrentLocation function");
-  const apiKey = "20e031b2d73df17283a8750e66d1228e";
 
   let locationTimeout;
   const options = {
@@ -12,23 +11,11 @@ export async function getCurrentLocation() {
     error: false,
   };
 
-  async function getLocationName(apiKey) {
-    console.trace();
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
-    );
-    const json = await response.json();
-    console.log("json", json);
-    location.name = json.name;
-    console.log("getLocationName function", location.name);
-  }
-
   function geolocSuccess(position) {
     clearTimeout(locationTimeout);
+    console.log("geolocSuccess function", location);
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
-    console.log("geolocSuccess function", location);
-    getLocationName(apiKey);
   }
 
   function geolocFail() {
@@ -55,5 +42,19 @@ export async function getCurrentLocation() {
   //     // const json = await response.json();
   //     // location.name = json.name;
   // }
+  return location;
+}
+
+export async function getLocationName(location) {
+  console.log("getLocationName function");
+  const apiKey = "20e031b2d73df17283a8750e66d1228e";
+  const response = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
+  );
+  const json = await response.json();
+  console.log("json", json);
+  location.name = json.name;
+  console.log("location.name", location.name);
+  getLocationName(apiKey);
   return location;
 }
