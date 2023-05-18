@@ -1,4 +1,5 @@
-import { getCurrentLocation } from "./getWeather";
+import { getCurrentLocation } from "./getLocation";
+import { getWeather } from "./getWeather";
 import { createWeatherUI } from "./weatherUI";
 
 export function createWeatherApp(mainElement) {
@@ -7,11 +8,11 @@ export function createWeatherApp(mainElement) {
   currentLocationPromise
     .then((currentLocation) => {
       console.log("getCurrentLocation pomise success", currentLocation);
-      //   getLocationName(currentLocation);
-      // })
-      // .then((currentLocation) => {
-      console.log("getLocationName pomise success", currentLocation);
-      createWeatherUI(mainElement, currentLocation);
+      const weather = getWeather(currentLocation);
+      weather.then((currentLocation) => {
+        console.log("getLocationName pomise success", currentLocation);
+        createWeatherUI(mainElement, currentLocation);
+      });
     })
     .catch((error) => {
       createWeatherUI(mainElement, error);
