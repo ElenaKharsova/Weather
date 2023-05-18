@@ -3,7 +3,7 @@ import * as images from "./imagesImports";
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
   let currentlocationLink;
-  console.log("location", location);
+  console.log("create weatherUI", location);
   if (location.error) {
     currentLocation = "Your location is hidden";
     currentlocationLink = "#";

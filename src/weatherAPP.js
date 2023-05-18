@@ -2,11 +2,11 @@ import { getCurrentLocation } from "./getWeather";
 import { createWeatherUI } from "./weatherUI";
 
 export function createWeatherApp(mainElement) {
-  // const currentLocation = null;
+  console.log("createWeatherApp function");
   const currentLocationPromise = getCurrentLocation();
   currentLocationPromise
     .then((currentLocation) => {
-      console.log("result", currentLocation);
+      console.log("getCurrentLocation pomise success", currentLocation);
       createWeatherUI(mainElement, currentLocation);
     })
     .catch((error) => {

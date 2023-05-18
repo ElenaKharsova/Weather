@@ -1,4 +1,5 @@
 export async function getCurrentLocation() {
+  console.log("getCurrentLocation function");
   const apiKey = "20e031b2d73df17283a8750e66d1228e";
 
   let locationTimeout;
@@ -12,6 +13,7 @@ export async function getCurrentLocation() {
   };
 
   async function getLocationName(apiKey) {
+    console.trace();
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
     );
