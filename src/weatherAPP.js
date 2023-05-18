@@ -1,9 +1,9 @@
 import { getCurrentLocation, getLocationName } from "./getWeather";
 import { createWeatherUI } from "./weatherUI";
 
-export async function createWeatherApp(mainElement) {
+export function createWeatherApp(mainElement) {
   console.log("createWeatherApp function");
-  const currentLocationPromise = await getCurrentLocation();
+  const currentLocationPromise = getCurrentLocation();
   currentLocationPromise
     .then((currentLocation) => {
       console.log("getCurrentLocation pomise success", currentLocation);
