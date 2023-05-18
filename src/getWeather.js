@@ -11,12 +11,18 @@ export async function getCurrentLocation() {
     error: false,
   };
 
-  function geolocSuccess(position) {
-    clearTimeout(locationTimeout);
-    console.log("geolocSuccess function", location);
-    location.latitude = position.coords.latitude;
-    location.longitude = position.coords.longitude;
+  function getCoordinates() {
+    return new Promise((resolve, geolocFail) => {
+      navigator.geolocation.getCurrentPosition(resolve, geolocFail, options);
+    });
   }
+
+  // function geolocSuccess(position) {
+  //   clearTimeout(locationTimeout);
+  //   console.log("geolocSuccess function", location);
+  // location.latitude = position.coords.latitude;
+  // location.longitude = position.coords.longitude;
+  // }
 
   function geolocFail() {
     clearTimeout(locationTimeout);
@@ -25,11 +31,16 @@ export async function getCurrentLocation() {
 
   if (navigator.geolocation) {
     locationTimeout = setTimeout(geolocFail, 10000);
-    navigator.geolocation.getCurrentPosition(
-      geolocSuccess,
-      geolocFail,
-      options
-    );
+    const position = await getCoordinates();
+    console.log("position", position);
+    location.latitude = position.coords.latitude;
+    location.longitude = position.coords.longitude;
+
+    // navigator.geolocation.getCurrentPosition(
+    //   geolocSuccess,
+    //   geolocFail,
+    //   options
+    // );
   } else {
     geolocFail();
     location.error = true;
