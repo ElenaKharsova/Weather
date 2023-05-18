@@ -2,16 +2,23 @@ import * as images from "./imagesImports";
 
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
+  let locationTemperature;
+  let locationWeatherIcon;
   let currentlocationLink;
   console.log("create weatherUI", location);
   if (location.error) {
     currentLocation = "Your location is hidden";
+    locationTemperature = "-";
+    locationWeatherIcon = images.sunCloud;
     currentlocationLink = "#";
   } else {
     console.log(" location.name", location.name);
     console.log(" location.error", location.error);
 
+    locationWeatherIcon = location.weather;
+
     currentLocation = location.name;
+    locationTemperature = location.temperature;
     currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
     // `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
     // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
@@ -25,9 +32,9 @@ export function createWeatherUI(mainElement, location) {
       <p>${currentLocation}</p>
     </div>
     <div class = "block data">
-      <img src = ${images.sunCloud} alt ="images weather" 
+      <img src = ${locationWeatherIcon} alt ="images weather" 
         class = "img-weather"/> 
-      <p class = "temperature" >31</p>
+      <p class = "temperature">${locationTemperature}</p>
     </div>
     <div class = "block">
         <img src= ${currentlocationLink}/>

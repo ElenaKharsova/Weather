@@ -10,7 +10,7 @@ export async function getWeather(location) {
   const json = await response.json();
   console.log("json", json);
   location.name = json.name;
-  location.temperature = json.main.temp - 273.15;
+  location.temperature = Math.round(json.main.temp - 273.15);
   location.weather = json.weather[0].main;
   console.log("location weather", location);
   return location;
