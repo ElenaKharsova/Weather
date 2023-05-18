@@ -12,7 +12,8 @@ export function createWeatherUI(mainElement, location) {
     console.log(" location.error", location.error);
 
     currentLocation = location.name;
-    currentlocationLink = `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
+    currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
+    // `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
     // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
   }
 
