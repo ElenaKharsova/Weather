@@ -28,6 +28,17 @@ export async function getCurrentLocation() {
     console.log("position", position);
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
+    // console.log("getLocationName function");
+    const apiKey = "20e031b2d73df17283a8750e66d1228e";
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
+    );
+    // const responseName = await getName(location);
+    // console.log("responseName", responseName);
+    const json = await response.json();
+    console.log("json", json);
+    location.name = json.name;
+    console.log("location.name", location.name);
   } else {
     geolocFail();
     location.error = true;
@@ -35,23 +46,23 @@ export async function getCurrentLocation() {
   return location;
 }
 
-export async function getLocationName(location) {
-  console.log("getLocationName function");
-  const apiKey = "20e031b2d73df17283a8750e66d1228e";
+// export async function getLocationName(location) {
+//   console.log("getLocationName function");
+//   const apiKey = "20e031b2d73df17283a8750e66d1228e";
 
-  function getName() {
-    return new Promise((location) => {
-      fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
-      );
-    });
-  }
-  const responseName = await getName(location);
-  console.log("responseName", responseName);
-  const json = await responseName.json();
-  console.log("json", json);
-  location.name = json.name;
-  console.log("location.name", location.name);
-  // getLocationName(apiKey);
-  return location;
-}
+//   function getName() {
+//     return new Promise((location) => {
+//       fetch(
+//         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
+//       );
+//     });
+//   }
+//   const responseName = await getName(location);
+//   console.log("responseName", responseName);
+//   const json = await responseName.json();
+//   console.log("json", json);
+//   location.name = json.name;
+//   console.log("location.name", location.name);
+//   // getLocationName(apiKey);
+//   return location;
+// }
