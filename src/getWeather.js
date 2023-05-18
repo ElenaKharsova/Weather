@@ -28,6 +28,7 @@ export async function getCurrentLocation() {
     console.log("position", position);
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
+    console.log("location", location);
     // console.log("getLocationName function");
     const apiKey = "20e031b2d73df17283a8750e66d1228e";
     const response = await fetch(
