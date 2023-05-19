@@ -16,6 +16,7 @@ export function createWeatherUI(mainElement, location) {
     console.log(" location.error", location.error);
     locationWeatherIcon = location.weather;
     console.log("locationWeatherIcon", locationWeatherIcon);
+    console.log("images[locationWeatherIcon]", images[locationWeatherIcon]);
     currentLocation = location.name;
     locationTemperature = location.temperature;
     currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
@@ -31,7 +32,7 @@ export function createWeatherUI(mainElement, location) {
       <p>${currentLocation}</p>
     </div>
     <div class = "block data">
-      <img src = ${locationWeatherIcon} alt ="images weather" 
+      <img src = ${images[locationWeatherIcon]} alt ="images weather" 
         class = "img-weather"/> 
       <p class = "temperature">${locationTemperature}</p>
     </div>
