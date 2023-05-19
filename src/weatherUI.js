@@ -1,25 +1,32 @@
 import * as images from "./imagesImports";
 
+function showMap(element) {
+  ymaps3.ready.then(() => {
+    new ymaps3.YMap(element.getElementById("YMapsID"), {
+      location: {
+        center: [37.64, 55.76],
+        zoom: 10,
+      },
+    });
+  });
+}
+
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
   let locationTemperature;
   let locationWeatherIcon;
-  let currentlocationLink;
+  // let currentlocationLink;
   console.log("create weatherUI", location);
   if (location.error) {
     currentLocation = "Your location is hidden";
     locationTemperature = "-";
     locationWeatherIcon = images.Clouds;
-    currentlocationLink = "#";
+    // currentlocationLink = "#";
   } else {
-    console.log(" location.name", location.name);
-    console.log(" location.error", location.error);
     locationWeatherIcon = location.weather;
-    console.log("locationWeatherIcon", locationWeatherIcon);
-    console.log("images[locationWeatherIcon]", images[locationWeatherIcon]);
     currentLocation = location.name;
     locationTemperature = location.temperature;
-    currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
+    // currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
     // `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
     // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
   }
@@ -37,7 +44,7 @@ export function createWeatherUI(mainElement, location) {
       <p class = "temperature">${locationTemperature}</p>
     </div>
     <div class = "block">
-        <img src= ${currentlocationLink}/>
+      <div id="YMapsID" style="width: 450px; height: 350px;"></div>
     </div>
   </header>
   <nav class = "block cities">
@@ -55,4 +62,5 @@ export function createWeatherUI(mainElement, location) {
     li.innerHTML = currentLocation;
     ul.appendChild(li);
   }
+  showMap(mainElement);
 }

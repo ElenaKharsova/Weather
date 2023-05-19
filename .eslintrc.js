@@ -20,5 +20,7 @@ module.exports = {
     "no-plusplus": "off",
     "no-shadow": "off",
     "no-console": "off",
+    "no-new": "off",
+    "no-undef": "off",
   },
 };
