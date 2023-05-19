@@ -9,15 +9,13 @@ export function createWeatherUI(mainElement, location) {
   if (location.error) {
     currentLocation = "Your location is hidden";
     locationTemperature = "-";
-    locationWeatherIcon = images.sunCloud;
+    locationWeatherIcon = images.Clouds;
     currentlocationLink = "#";
   } else {
     console.log(" location.name", location.name);
     console.log(" location.error", location.error);
-
-    console.log("locationWeatherIcon", locationWeatherIcon);
     locationWeatherIcon = location.weather;
-
+    console.log("locationWeatherIcon", locationWeatherIcon);
     currentLocation = location.name;
     locationTemperature = location.temperature;
     currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";

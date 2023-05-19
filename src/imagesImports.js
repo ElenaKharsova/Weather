@@ -4,8 +4,8 @@ import Drizzle from "./images/Drizzle.png";
 import Rain from "./images/Rain.png";
 import Snow from "./images/Snow.png";
 import Thunderstorm from "./images/Thunderstorm.png";
-import sunCloud from "./images/SunCloud.png";
+import Clouds from "./images/Clouds.png";
 
 export {
-  location, Clear, Drizzle, Rain, Snow, Thunderstorm, sunCloud
+  location, Clear, Drizzle, Rain, Snow, Thunderstorm, Clouds
 };
