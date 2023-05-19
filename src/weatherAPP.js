@@ -22,8 +22,7 @@ export function createWeatherApp(mainElement) {
       latitude: 39.4455415,
       longitude: -0.3737121,
     };
-    const weather = getWeather(location);
-    weather.then((currentLocation) => {
+    getWeather(location).then((currentLocation) => {
       createWeatherUI(mainElement, currentLocation);
     });
   }
