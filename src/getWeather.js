@@ -5,8 +5,6 @@ export async function getWeather(location) {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
   );
-  // const responseName = await getName(location);
-  // console.log("responseName", responseName);
   const json = await response.json();
   console.log("json", json);
   location.name = json.name;
