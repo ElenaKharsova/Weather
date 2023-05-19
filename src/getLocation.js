@@ -7,11 +7,10 @@ export async function getCurrentLocation() {
     maximumAge: 1000,
     timeout: 3600,
   };
-  const location = {
-    error: false,
-  };
+  const location = {};
 
   function getCoordinates() {
+    clearTimeout(locationTimeout);
     return new Promise((resolve, geolocFail) => {
       navigator.geolocation.getCurrentPosition(resolve, geolocFail, options);
     });
@@ -19,7 +18,8 @@ export async function getCurrentLocation() {
 
   function geolocFail() {
     clearTimeout(locationTimeout);
-    location.error = true;
+    // location.error = true;
+    reject(new Error("Your location is hidden"));
   }
 
   if (navigator.geolocation) {
@@ -29,29 +29,8 @@ export async function getCurrentLocation() {
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
   } else {
+    // location.error = true;
     geolocFail();
-    location.error = true;
   }
   return location;
 }
-
-// export async function getLocationName(location) {
-//   console.log("getLocationName function");
-//   const apiKey = "20e031b2d73df17283a8750e66d1228e";
-
-//   function getName() {
-//     return new Promise((location) => {
-//       fetch(
-//         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
-//       );
-//     });
-//   }
-//   const responseName = await getName(location);
-//   console.log("responseName", responseName);
-//   const json = await responseName.json();
-//   console.log("json", json);
-//   location.name = json.name;
-//   console.log("location.name", location.name);
-//   // getLocationName(apiKey);
-//   return location;
-// }

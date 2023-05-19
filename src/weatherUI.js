@@ -27,24 +27,26 @@ function showMap(element, location) {
 }
 
 export function createWeatherUI(mainElement, location) {
-  let currentLocation;
-  let locationTemperature;
-  let locationWeatherIcon = images.Clouds;
+  const locationTemperature = location.temperature;
+  const locationWeatherIcon = location.weather;
+  const currentLocation = location.name;
+
   // let currentlocationLink;
   console.log("create weatherUI", location);
-  if (location.error) {
-    currentLocation = "Your location is hidden";
-    locationTemperature = "-";
-    // locationWeatherIcon = images.Clouds;
-    // currentlocationLink = "#";
-  } else {
-    locationWeatherIcon = location.weather;
-    currentLocation = location.name;
-    locationTemperature = location.temperature;
-    // currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
-    // `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
-    // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
-  }
+  // if (location.error) {
+  // currentLocation = "Your location is hidden";
+
+  // locationTemperature = "-";
+
+  // locationWeatherIcon = images.Clouds;
+  // currentlocationLink = "#";
+  // } else {
+  // locationWeatherIcon = location.weather;
+
+  // currentlocationLink = "https://geocode-maps.yandex.ru/1.x?geocode=";
+  // `https://www.openstreetmap.org/export/embed.html?bbox=${location.longitude}%2C${location.latitude}&amp;layer=mapnik`;
+  // `https://www.openstreetmap.org/#map=18/${location.latitude}/${location.longitude}`;
+  // }
 
   mainElement.innerHTML = `
   <header class = "header">
@@ -71,11 +73,11 @@ export function createWeatherUI(mainElement, location) {
     </ul>
   </nav>
   `;
-  if (!location.error) {
-    const ul = mainElement.querySelector("ul");
-    const li = document.createElement("li");
-    li.innerHTML = currentLocation;
-    ul.appendChild(li);
-  }
+  // if (!location.error) {
+  const ul = mainElement.querySelector("ul");
+  const li = document.createElement("li");
+  li.innerHTML = currentLocation;
+  ul.appendChild(li);
+  // }
   showMap(mainElement, location);
 }
