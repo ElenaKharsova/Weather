@@ -15,6 +15,7 @@ export function createWeatherUI(mainElement, location) {
     console.log(" location.name", location.name);
     console.log(" location.error", location.error);
 
+    console.log("locationWeatherIcon", locationWeatherIcon);
     locationWeatherIcon = location.weather;
 
     currentLocation = location.name;
