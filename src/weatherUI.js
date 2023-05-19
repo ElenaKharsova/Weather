@@ -5,7 +5,7 @@ function showMap(element, location) {
   mapNode.innerHTML = "";
   ymaps3.ready.then(init);
   function init() {
-    console.log("init function");
+    console.log("init function", location.latitude, location.longitude);
     const map = new ymaps3.YMap(mapNode, {
       location: {
         center: [location.latitude, location.longitude],
@@ -13,7 +13,17 @@ function showMap(element, location) {
       },
     });
     console.log("map", map);
+    return map;
   }
+  // const divMap = document.querySelector("#map");
+  // divMap.innerHTML = "";
+  // ymaps.ready(() => {
+  //   const map = new ymaps.Map("map", {
+  //     center: [location.latitude, location.longitude],
+  //     zoom: 10,
+  //   });
+  //   return map;
+  // });
 }
 
 export function createWeatherUI(mainElement, location) {
