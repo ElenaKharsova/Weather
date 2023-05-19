@@ -12,7 +12,7 @@ function showMap(element) {
   // ymaps3 = window.ymaps3;
   const mapNode = element.querySelector("#map");
 
-  const map = new YMap(mapNode, {
+  const map = new ymaps3.YMap(mapNode, {
     location: {
       center: [37.77971267700195, 55.66328048706],
       zoom: 7,
