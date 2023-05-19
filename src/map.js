@@ -14,7 +14,6 @@ export function showMap(element, location) {
       zoom: 7,
     },
   });
-
   map.addChild(new YMapDefaultSchemeLayer());
   // map.addChild(new YMapDefaultMarkersLayer());
   // map.addChild(
@@ -22,4 +21,6 @@ export function showMap(element, location) {
   //     coordinates: [location.latitude, location.longitude],
   //   })
   // );
+  console.log("map", map);
+  console.log("location", location);
 }

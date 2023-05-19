@@ -2,10 +2,14 @@ import * as images from "./imagesImports";
 import { showMap } from "./map";
 
 export function createWeatherUI(mainElement, location) {
+  let currentLocation;
+  if (location instanceof Error) {
+    currentLocation = "Hidden location";
+  } else {
+    currentLocation = location.name;
+  }
   const locationTemperature = location.temperature;
   const locationWeatherIcon = location.weather;
-  const currentLocation = location.name;
-
   console.log("create weatherUI", location);
 
   mainElement.innerHTML = `
