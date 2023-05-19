@@ -1,15 +1,15 @@
 import * as images from "./imagesImports";
 
-function showMap(element) {
-  ymaps3.ready.then(() => {
-    new ymaps3.YMap(element.getElementById("YMapsID"), {
-      location: {
-        center: [37.64, 55.76],
-        zoom: 10,
-      },
-    });
-  });
-}
+// function showMap(element) {
+//   ymaps3.ready.then(() => {
+//     new ymaps3.YMap(element.getElementById("YMapsID"), {
+//       location: {
+//         center: [37.64, 55.76],
+//         zoom: 10,
+//       },
+//     });
+//   });
+// }
 
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
@@ -62,5 +62,13 @@ export function createWeatherUI(mainElement, location) {
     li.innerHTML = currentLocation;
     ul.appendChild(li);
   }
-  showMap(mainElement);
+  // showMap(mainElement);
+  ymaps3.ready.then(() => {
+    new ymaps3.YMap(element.getElementById("YMapsID"), {
+      location: {
+        center: [37.64, 55.76],
+        zoom: 10,
+      },
+    });
+  });
 }
