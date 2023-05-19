@@ -1,13 +1,14 @@
 import * as images from "./imagesImports";
 
-function showMap(element) {
+function showMap(element, location) {
   const mapNode = element.querySelector("#map");
+  mapNode.innerHTML = "";
   ymaps3.ready.then(init);
   function init() {
     console.log("init function");
     const map = new ymaps3.YMap(mapNode, {
       location: {
-        center: [37.64, 55.76],
+        center: [location.latitude, location.longitude],
         zoom: 7,
       },
     });
@@ -66,5 +67,5 @@ export function createWeatherUI(mainElement, location) {
     li.innerHTML = currentLocation;
     ul.appendChild(li);
   }
-  showMap(mainElement);
+  showMap(mainElement, location);
 }
