@@ -1,9 +1,9 @@
-// import {
-//   YMap,
-//   YMapDefaultMarker,
-//   YMapDefaultMarkersLayer,
-//   YMapDefaultSchemeLayer,
-// } from "ymaps3";
+import {
+  YMap,
+  YMapDefaultMarker,
+  YMapDefaultMarkersLayer,
+  YMapDefaultSchemeLayer,
+} from "ymaps3";
 
 import * as images from "./imagesImports";
 // import {ymaps, ymaps3} from "yandex-maps"
