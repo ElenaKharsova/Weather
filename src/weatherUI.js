@@ -1,7 +1,7 @@
 import {
   YMap,
   YMapDefaultMarker,
-  YMapDefaultMarkersLayer,
+  // YMapDefaultMarkersLayer,
   YMapDefaultSchemeLayer,
 } from "ymaps3";
 
@@ -20,10 +20,10 @@ function showMap(element, location) {
   });
 
   map.addChild(new YMapDefaultSchemeLayer());
-  map.addChild(new YMapDefaultMarkersLayer());
+  // map.addChild(new YMapDefaultMarkersLayer());
   map.addChild(
     new YMapDefaultMarker({
-      coordinates: [37.77971267700195, 55.66328048706],
+      coordinates: [location.latitude, location.longitude],
     })
   );
   // mapNode.innerHTML = "";
