@@ -1,12 +1,15 @@
 import * as images from "./imagesImports";
+// import {ymaps, ymaps3} from "yandex-maps"
 
 function showMap(element, location) {
+  // ymaps3 = window.ymaps3;
   const mapNode = element.querySelector("#map");
   mapNode.innerHTML = "";
+  let map;
   ymaps3.ready.then(init);
   function init() {
     console.log("init function", location.latitude, location.longitude);
-    const map = new ymaps3.YMap(mapNode, {
+    map = new ymaps3.YMap(mapNode, {
       location: {
         center: [location.latitude, location.longitude],
         zoom: 7,
