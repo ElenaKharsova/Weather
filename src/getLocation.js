@@ -18,7 +18,6 @@ export async function getCurrentLocation() {
 
   function geolocFail() {
     clearTimeout(locationTimeout);
-    // location.error = true;
     reject(new Error("Your location is hidden"));
   }
 
@@ -29,7 +28,6 @@ export async function getCurrentLocation() {
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
   } else {
-    // location.error = true;
     geolocFail();
   }
   return location;

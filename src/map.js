@@ -1,0 +1,25 @@
+import {
+  YMap,
+  // YMapDefaultMarker,
+  // YMapDefaultMarkersLayer,
+  YMapDefaultSchemeLayer,
+} from "ymaps3";
+
+export function showMap(element, location) {
+  const mapNode = element.querySelector("#map");
+
+  const map = new YMap(mapNode, {
+    location: {
+      center: [location.latitude, location.longitude],
+      zoom: 7,
+    },
+  });
+
+  map.addChild(new YMapDefaultSchemeLayer());
+  // map.addChild(new YMapDefaultMarkersLayer());
+  // map.addChild(
+  //   new YMapDefaultMarker({
+  //     coordinates: [location.latitude, location.longitude],
+  //   })
+  // );
+}
