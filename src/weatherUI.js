@@ -1,46 +1,49 @@
 import * as images from "./imagesImports";
 // import {ymaps, ymaps3} from "yandex-maps"
 
-async function showMap(element, location) {
+function showMap(element, location) {
   // ymaps3 = window.ymaps3;
   const mapNode = element.querySelector("#map");
-  mapNode.innerHTML = "";
-  await ymaps3.ready;
-  console.log("init function", location.latitude, location.longitude);
-  const map = new ymaps3.YMap(mapNode, {
-    location: {
-      center: [location.latitude, location.longitude],
-      zoom: 7,
-    },
-  });
-  const layer = new YMapDefaultSchemeLayer();
-  mapNode.addChild(layer);
-  console.log("map", map);
+  // mapNode.innerHTML = "";
+  // await ymaps3.ready;
+  // console.log("init function", location.latitude, location.longitude);
+  // const map = new ymaps3.YMap(mapNode, {
+  //   location: {
+  //     center: [location.latitude, location.longitude],
+  //     zoom: 7,
+  //   },
+  // });
+  // const layer = new YMapDefaultSchemeLayer();
+  // mapNode.addChild(layer);
+  // console.log("map", map);
   //   return map;
-}
+  // }
+  // map.addChild(new YMapDefaultSchemeLayer({theme: 'dark'}));
 
-// ymaps3.ready.then(init);
-// function init() {
-//   console.log("init function", location.latitude, location.longitude);
-//   const map = new ymaps3.YMap(mapNode, {
-//     location: {
-//       center: [location.latitude, location.longitude],
-//       zoom: 7,
-//     },
-//   });
-//   console.log("map", map);
-//   return map;
-// }
-// const divMap = document.querySelector("#map");
-// divMap.innerHTML = "";
-// ymaps.ready(() => {
-//   const map = new ymaps.Map("map", {
-//     center: [location.latitude, location.longitude],
-//     zoom: 10,
-//   });
-//   return map;
-// });
-// }
+  ymaps3.ready.then(init);
+  function init() {
+    console.log("init function", location.latitude, location.longitude);
+    const newLayer = new YMapDefaultSchemeLayer({ theme: "dark" });
+    const map = new ymaps3.YMap(mapNode, {
+      location: {
+        center: [location.latitude, location.longitude],
+        zoom: 7,
+      },
+      layer: newLayer,
+    });
+    console.log("map", map);
+    return map;
+  }
+  // const divMap = document.querySelector("#map");
+  // divMap.innerHTML = "";
+  // ymaps.ready(() => {
+  //   const map = new ymaps.Map("map", {
+  //     center: [location.latitude, location.longitude],
+  //     zoom: 10,
+  //   });
+  //   return map;
+  // });
+}
 
 export function createWeatherUI(mainElement, location) {
   const locationTemperature = location.temperature;
@@ -77,7 +80,7 @@ export function createWeatherUI(mainElement, location) {
       <p class = "temperature">${locationTemperature}</p>
     </div>
     <div class = "block">
-      <div id="map" style="width: 450px; height: 350px;"></div>
+      <div id="map"></div>
     </div>
   </header>
   <nav class = "block cities">
