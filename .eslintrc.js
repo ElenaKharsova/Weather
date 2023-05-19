@@ -23,5 +23,6 @@ module.exports = {
     "no-new": "off",
     "no-undef": "off",
     "no-use-before-define": "off",
+    "import/no-unresolved": "off",
   },
 };

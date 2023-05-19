@@ -1,9 +1,9 @@
-// import {
-//   YMap,
-//   YMapDefaultMarker,
-//   YMapDefaultMarkersLayer,
-//   YMapDefaultSchemeLayer,
-// } from "ymaps3";
+import {
+  YMap,
+  YMapDefaultMarker,
+  YMapDefaultMarkersLayer,
+  YMapDefaultSchemeLayer,
+} from "ymaps3";
 
 import * as images from "./imagesImports";
 // import {ymaps, ymaps3} from "yandex-maps"
@@ -12,7 +12,7 @@ function showMap(element) {
   // ymaps3 = window.ymaps3;
   const mapNode = element.querySelector("#map");
 
-  const map = new ymaps3.YMap(mapNode, {
+  const map = new YMap(mapNode, {
     location: {
       center: [37.77971267700195, 55.66328048706],
       zoom: 7,
