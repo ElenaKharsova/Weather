@@ -1,9 +1,31 @@
+// import {
+//   YMap,
+//   YMapDefaultMarker,
+//   YMapDefaultMarkersLayer,
+//   YMapDefaultSchemeLayer,
+// } from "ymaps3";
+
 import * as images from "./imagesImports";
 // import {ymaps, ymaps3} from "yandex-maps"
 
-function showMap(element, location) {
+function showMap(element) {
   // ymaps3 = window.ymaps3;
   const mapNode = element.querySelector("#map");
+
+  const map = new YMap(mapNode, {
+    location: {
+      center: [37.77971267700195, 55.66328048706],
+      zoom: 7,
+    },
+  });
+
+  map.addChild(new YMapDefaultSchemeLayer());
+  map.addChild(new YMapDefaultMarkersLayer());
+  map.addChild(
+    new YMapDefaultMarker({
+      coordinates: [37.77971267700195, 55.66328048706],
+    })
+  );
   // mapNode.innerHTML = "";
   // await ymaps3.ready;
   // console.log("init function", location.latitude, location.longitude);
@@ -20,20 +42,20 @@ function showMap(element, location) {
   // }
   // map.addChild(new YMapDefaultSchemeLayer({theme: 'dark'}));
 
-  ymaps3.ready.then(init);
-  function init() {
-    console.log("init function", location.latitude, location.longitude);
-    const newLayer = new YMapDefaultSchemeLayer({ theme: "dark" });
-    const map = new ymaps3.YMap(mapNode, {
-      location: {
-        center: [location.latitude, location.longitude],
-        zoom: 7,
-      },
-      layer: newLayer,
-    });
-    console.log("map", map);
-    return map;
-  }
+  // ymaps3.ready.then(init);
+  // function init() {
+  //   console.log("init function", location.latitude, location.longitude);
+  //   // const newLayer = new YMapDefaultSchemeLayer({ theme: "dark" });
+  //   const map = new ymaps3.YMap(mapNode, {
+  //     location: {
+  //       center: [location.latitude, location.longitude],
+  //       zoom: 7,
+  //     },
+  //     // layer: newLayer,
+  //   });
+  //   console.log("map", map);
+  //   return map;
+  // }
   // const divMap = document.querySelector("#map");
   // divMap.innerHTML = "";
   // ymaps.ready(() => {
