@@ -1,28 +1,30 @@
 import * as images from "./imagesImports";
 
-async function showMap(element) {
-  //  // ymaps = window.ymaps;
-  await ymaps3.ready;
-  ymaps3.ready.then(() => {
-    new ymaps3.YMap(element.getElementById("YMapsID"), {
+function showMap(element) {
+  const mapNode = element.querySelector("#map");
+  ymaps3.ready.then(init);
+  function init() {
+    console.log("init function");
+    const map = new ymaps3.YMap(mapNode, {
       location: {
         center: [37.64, 55.76],
-        zoom: 10,
+        zoom: 7,
       },
     });
-  });
+    console.log("map", map);
+  }
 }
 
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
   let locationTemperature;
-  let locationWeatherIcon;
+  let locationWeatherIcon = images.Clouds;
   // let currentlocationLink;
   console.log("create weatherUI", location);
   if (location.error) {
     currentLocation = "Your location is hidden";
     locationTemperature = "-";
-    locationWeatherIcon = images.Clouds;
+    // locationWeatherIcon = images.Clouds;
     // currentlocationLink = "#";
   } else {
     locationWeatherIcon = location.weather;
@@ -46,7 +48,7 @@ export function createWeatherUI(mainElement, location) {
       <p class = "temperature">${locationTemperature}</p>
     </div>
     <div class = "block">
-      <div id="YMapsID" style="width: 450px; height: 350px;"></div>
+      <div id="map" style="width: 450px; height: 350px;"></div>
     </div>
   </header>
   <nav class = "block cities">

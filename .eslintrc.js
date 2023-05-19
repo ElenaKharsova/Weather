@@ -22,5 +22,6 @@ module.exports = {
     "no-console": "off",
     "no-new": "off",
     "no-undef": "off",
+    "no-use-before-define": "off",
   },
 };
