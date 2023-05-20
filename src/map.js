@@ -5,7 +5,7 @@ import {
   YMapDefaultSchemeLayer,
 } from "ymaps3";
 
-export function showMap(element, location) {
+export function showMap(element) {
   // main();
 
   // async function main() {
@@ -24,18 +24,18 @@ export function showMap(element, location) {
   // const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
 
   const mapNode = element.querySelector("#map");
-  const LOCATION = {
-    center: [location.latitude, location.longitude],
-    zoom: 10,
-  };
-  // const NEW_LOCATION = {
-  //   center: [37.623082, 55.75254],
+  // const LOCATION = {
+  //   center: [location.latitude, location.longitude],
   //   zoom: 10,
   // };
+  const NEW_LOCATION = {
+    center: [-35.306907, 149.125531],
+    zoom: 10,
+  };
 
   const map = new YMap(
     mapNode,
-    { location: LOCATION }
+    { location: NEW_LOCATION }
     // [new YMapDefaultSchemeLayer()]
   );
   // });
