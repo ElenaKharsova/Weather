@@ -34,6 +34,6 @@ export function showMap(element, location) {
   // );
   console.log("map", map);
   console.log("location", location);
-  const newCoordinates = [59.93863, 30.31413]; // New coordinates (St. Petersburg)
-  map.setCenter(newCoordinates);
+  // const newCoordinates = [59.93863, 30.31413]; // New coordinates (St. Petersburg)
+  // map.setCenter(newCoordinates);
 }
