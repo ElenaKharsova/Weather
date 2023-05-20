@@ -7,10 +7,10 @@ import {
 
 export function showMap(element, location) {
   const mapNode = element.querySelector("#map");
-  const LOCATION = {
-    center: [location.latitude, location.longitude],
-    zoom: 10,
-  };
+  // const LOCATION = {
+  //   center: [location.latitude, location.longitude],
+  //   zoom: 10,
+  // };
   const NEW_LOCATION = {
     center: [59.93863, 30.31413],
     zoom: 10,
@@ -20,7 +20,7 @@ export function showMap(element, location) {
   //   "@yandex/ymaps3-markers@0.0.1"
   // );
 
-  const map = new YMap(mapNode, { location: LOCATION }, [
+  const map = new YMap(mapNode, { location: NEW_LOCATION }, [
     new YMapDefaultSchemeLayer(),
   ]);
   // });
@@ -33,10 +33,10 @@ export function showMap(element, location) {
   // );
   console.log("map", map);
   console.log("location", location);
-  map.setLocation({
-    ...NEW_LOCATION,
-    duration: 1000,
-  });
+  // map.setLocation({
+  //   ...NEW_LOCATION,
+  //   duration: 1000,
+  // });
   //   const newCoordinates = [59.9386300, 30.3141300]; // New coordinates (St. Petersburg)
   // //   map.setCenter(newCoordinates);
 }
