@@ -13,7 +13,7 @@ export function showMap(element, location) {
     {
       location: {
         center: [location.latitude, location.longitude],
-        zoom: 7,
+        zoom: 10,
       },
     },
     [
@@ -34,6 +34,6 @@ export function showMap(element, location) {
   // );
   console.log("map", map);
   console.log("location", location);
+  const newCoordinates = [59.93863, 30.31413]; // New coordinates (St. Petersburg)
+  map.setCenter(newCoordinates);
 }
-// var newCoordinates = [59.9386300, 30.3141300]; // New coordinates (St. Petersburg)
-//   map.setCenter(newCoordinates);
