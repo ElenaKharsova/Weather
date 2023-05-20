@@ -1,6 +1,6 @@
 import {
   YMap,
-  YMapDefaultMarker,
+  // YMapDefaultMarker,
   // YMapDefaultMarkersLayer,
   YMapDefaultSchemeLayer,
 } from "ymaps3";
@@ -19,9 +19,9 @@ export function showMap(element, location) {
     [
       new YMapDefaultSchemeLayer(),
       // new YMapDefaultMarkersLayer(),
-      new YMapDefaultMarker({
-        coordinates: [location.latitude, location.longitude],
-      }),
+      // new YMapDefaultMarker({
+      //   coordinates: [location.latitude, location.longitude],
+      // }),
     ]
   );
   // });
