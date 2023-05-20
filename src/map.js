@@ -2,7 +2,7 @@ import {
   YMap,
   // YMapDefaultMarker,
   // YMapDefaultMarkersLayer,
-  // YMapDefaultSchemeLayer,
+  YMapDefaultSchemeLayer,
 } from "ymaps3";
 
 export function showMap(element, location) {
