@@ -13,19 +13,19 @@ export function showMap(element, location) {
   };
   // const NEW_LOCATION = { center: [59.93863, 30.31413], zoom: 10 };
 
-  const { YMapDefaultMarker, YMapDefaultMarkersLayer } = ymaps3.import(
-    "@yandex/ymaps3-markers@0.0.1"
-  );
+  // const { YMapDefaultMarker, YMapDefaultMarkersLayer } = ymaps3.import(
+  //   "@yandex/ymaps3-markers@0.0.1"
+  // );
 
   const map = new YMap(mapNode, LOCATION, [new YMapDefaultSchemeLayer()]);
   // });
   // map.addChild(new YMapDefaultSchemeLayer());
-  map.addChild(new YMapDefaultMarkersLayer());
-  map.addChild(
-    new YMapDefaultMarker({
-      coordinates: [location.latitude, location.longitude],
-    })
-  );
+  // map.addChild(new YMapDefaultMarkersLayer());
+  // map.addChild(
+  //   new YMapDefaultMarker({
+  //     coordinates: [location.latitude, location.longitude],
+  //   })
+  // );
   console.log("map", map);
   console.log("location", location);
   // map.setLocation({
