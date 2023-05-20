@@ -57,6 +57,11 @@ button:hover {
   margin: 0;
 }
 
+.smallMap {
+  width: 450px !important;
+  height: 350px !important;
+}
+
 .wrap {
   margin: 0 auto;
   width: 98%;

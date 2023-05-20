@@ -25,7 +25,7 @@ export function createWeatherUI(mainElement, location) {
       <p class = "temperature">${locationTemperature}</p>
     </div>
     <div class = "block">
-      <div id="map"></div>
+      <div id="map" class="smallMap"></div>
     </div>
   </header>
   <nav class = "block cities">
