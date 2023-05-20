@@ -56,16 +56,11 @@ button:hover {
   height: 400px;
   margin: 0;
 }
-
+/* 
 .smallMap {
   width: 450px !important;
   height: 350px !important;
-}
-
-canvas {
-  width: 400px;
-  height: 300px;
-}
+} */
 
 .wrap {
   margin: 0 auto;
