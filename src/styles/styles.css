@@ -62,6 +62,11 @@ button:hover {
   height: 350px !important;
 }
 
+canvas {
+  width: 400px;
+  height: 300px;
+}
+
 .wrap {
   margin: 0 auto;
   width: 98%;
