@@ -82,7 +82,7 @@ module.exports = (env) => ({
     ymaps3: [
       `promise new Promise((resolve) => {
         const script = document.createElement('script');
-        script.src = "https://api-maps.yandex.ru/3.0/?apikey=181e7d0a-2afb-430b-89e8-6ccf33dae24d&lang=ru_RU";
+        script.src = "https://api-maps.yandex.ru/3.0/?apikey=181e7d0a-2afb-430b-89e8-6ccf33dae24d&lang=ru_RU&coordorder=longlat";
         script.async = true;
         script.onload = () => {
           ymaps3.ready.then(() => resolve(ymaps3));
