@@ -42,8 +42,4 @@ export function createWeatherUI(mainElement, location) {
   li.innerHTML = currentLocation;
   ul.appendChild(li);
   showMap(mainElement, location);
-  const canvas = mainElement.querySelector("canvas");
-  console.log(canvas.outerHTML);
-  canvas.width = "500";
-  canvas.height = "400";
 }

@@ -48,10 +48,6 @@ export function showMap(element, location) {
   //   })
   // );
   // map.addChild(new YMapDefaultFeaturesLayer({id: 'features'}));
-  const canvas = document.querySelector("canvas");
-  console.log(canvas.outerHTML);
-  canvas.width = "500";
-  canvas.height = "400";
 
   console.log("map", map);
   // console.log("location", location);
