@@ -1,7 +1,7 @@
 import {
   YMap,
   YMapDefaultMarker,
-  YMapDefaultMarkersLayer,
+  // YMapDefaultMarkersLayer,
   YMapDefaultSchemeLayer,
 } from "ymaps3";
 
@@ -18,7 +18,7 @@ export function showMap(element, location) {
     },
     [
       new YMapDefaultSchemeLayer(),
-      new YMapDefaultMarkersLayer(),
+      // new YMapDefaultMarkersLayer(),
       new YMapDefaultMarker({
         coordinates: [location.latitude, location.longitude],
       }),
