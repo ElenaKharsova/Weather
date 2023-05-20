@@ -12,7 +12,7 @@ export function showMap(element, location) {
     mapNode,
     {
       location: {
-        center: [location.latitude, location.longitude],
+        center: [59.93863, 30.31413],
         zoom: 10,
       },
     },
