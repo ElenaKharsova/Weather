@@ -2,7 +2,7 @@ import {
   YMap,
   // YMapDefaultMarker,
   // YMapDefaultMarkersLayer,
-  YMapDefaultSchemeLayer,
+  // YMapDefaultSchemeLayer,
 } from "ymaps3";
 
 export function showMap(element, location) {
@@ -11,9 +11,13 @@ export function showMap(element, location) {
     center: [location.latitude, location.longitude],
     zoom: 10,
   };
-  const NEW_LOCATION = { center: [59.93863, 30.31413], zoom: 10 };
+  // const NEW_LOCATION = { center: [59.93863, 30.31413], zoom: 10 };
 
-  const map = new YMap(mapNode, LOCATION, [new YMapDefaultSchemeLayer()]);
+  const map = new YMap(
+    mapNode,
+    LOCATION
+    // [new YMapDefaultSchemeLayer()]
+  );
   // });
   // map.addChild(new YMapDefaultSchemeLayer());
   // map.addChild(new YMapDefaultMarkersLayer());
@@ -24,10 +28,10 @@ export function showMap(element, location) {
   // );
   console.log("map", map);
   console.log("location", location);
-  map.setLocation({
-    ...NEW_LOCATION,
-    duration: 1000,
-  });
+  // map.setLocation({
+  //   ...NEW_LOCATION,
+  //   duration: 1000,
+  // });
   //   const newCoordinates = [59.9386300, 30.3141300]; // New coordinates (St. Petersburg)
   // //   map.setCenter(newCoordinates);
 }
