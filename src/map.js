@@ -17,7 +17,7 @@ export function showMap(element, location) {
     "@yandex/ymaps3-markers@0.0.1"
   );
 
-  const map = new YMap(mapNode, LOCATION[new YMapDefaultSchemeLayer()]);
+  const map = new YMap(mapNode, LOCATION, [new YMapDefaultSchemeLayer()]);
   // });
   // map.addChild(new YMapDefaultSchemeLayer());
   map.addChild(new YMapDefaultMarkersLayer());
