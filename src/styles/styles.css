@@ -52,15 +52,15 @@ button:hover {
 }
 
 #map {
-  width: 500px;
+  /* width: 500px;
   height: 400px;
-  margin: 0;
+  margin: 0; */
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: block;
 }
-/* 
-.smallMap {
-  width: 450px !important;
-  height: 350px !important;
-} */
 
 .wrap {
   margin: 0 auto;

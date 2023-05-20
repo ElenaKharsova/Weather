@@ -26,8 +26,4 @@ export function createWeatherApp(mainElement) {
       createWeatherUI(mainElement, currentLocation);
     });
   }
-  const canvas = mainElement.querySelector("canvas");
-  console.log(canvas.outerHTML);
-  canvas.width = "500";
-  canvas.height = "400";
 }
