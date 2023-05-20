@@ -25,7 +25,7 @@ export function showMap(element, location) {
 
   const mapNode = element.querySelector("#map");
   const LOCATION = {
-    center: [location.latitude, location.longitude],
+    center: [location.longitude, location.latitude],
     zoom: 10,
   };
   // const NEW_LOCATION = {
