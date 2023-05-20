@@ -24,7 +24,6 @@ export async function getCurrentLocation() {
   if (navigator.geolocation) {
     locationTimeout = setTimeout(geolocFail, 10000);
     const position = await getCoordinates();
-    console.log("position", position);
     location.latitude = position.coords.latitude;
     location.longitude = position.coords.longitude;
   } else {
