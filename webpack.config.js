@@ -78,11 +78,11 @@ module.exports = (env) => ({
   externalsType: "script",
   externals: {
     // Можно и так, но тогда в ипорте будет просто промис
-    // ymaps3: ["https://api-maps.yandex.ru/3.0-beta/?apikey=4a75efd1-e36a-4f02-8957-954d09371435&lang=ru-RU", "ymaps3"],
+    // ymaps3: ["https://api-maps.yandex.ru/3.0-beta/?apikey=181e7d0a-2afb-430b-89e8-6ccf33dae24d&lang=ru-RU", "ymaps3"],
     ymaps3: [
       `promise new Promise((resolve) => {
         const script = document.createElement('script');
-        script.src = "https://api-maps.yandex.ru/3.0/?apikey=181e7d0a-2afb-430b-89e8-6ccf33dae24d&lang=ru_RU";
+        script.src = "https://api-maps.yandex.ru/3.0/?apikey=9a8efa86-c86a-4512-96cf-e0a35b87c71e&lang=ru_RU";
         script.async = true;
         script.onload = () => {
           ymaps3.ready.then(() => resolve(ymaps3));

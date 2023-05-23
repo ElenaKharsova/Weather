@@ -3,11 +3,11 @@ export async function getWeather(location) {
 
   console.log("getweather function");
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}&lang=ru`
   );
   const json = await response.json();
-  console.log("json", json);
   location.name = json.name;
+  console.log("json first", json);
   location.temperature = Math.round(json.main.temp - 273.15);
   location.weather = json.weather[0].main;
   return location;

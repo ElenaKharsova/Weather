@@ -1,5 +1,5 @@
 import * as images from "./imagesImports";
-import { showMap } from "./map";
+// import { searchCity } from "./weatherAPP";
 
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
@@ -11,7 +11,6 @@ export function createWeatherUI(mainElement, location) {
   const locationTemperature = location.temperature;
   const locationWeatherIcon = location.weather;
   console.log("create weatherUI", location);
-
   mainElement.innerHTML = `
   <header class = "header">
     <div class = "location">
@@ -41,5 +40,33 @@ export function createWeatherUI(mainElement, location) {
   const li = document.createElement("li");
   li.innerHTML = currentLocation;
   ul.appendChild(li);
-  showMap(mainElement, location);
+  console.log("return loc UI", location);
+
+  mainElement.querySelector("button").addEventListener("click", searchCity);
+
+  async function searchCity() {
+    const apiKey = "20e031b2d73df17283a8750e66d1228e";
+
+    const inputCity = mainElement.querySelector("input").value;
+    if (inputCity) {
+      await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&lang=ru`
+      )
+        .then((json) => {
+          console.log("json", json);
+          // location.name = json.name;
+          // location.temperature = Math.round(json.main.temp - 273.15);
+          // location.weather = json.weather[0].main;
+          // const newlocation = [30.2642,59.8944];
+          // changeCenter(map, location);
+        })
+        .catch((error) => {
+          console.log("inputCity Error!!!");
+          alert(error.message);
+          // reject(new Error("Your location is hidden"));
+        });
+    }
+  }
+
+  return location;
 }
