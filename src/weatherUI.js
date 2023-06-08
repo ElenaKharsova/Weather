@@ -1,8 +1,12 @@
 import * as images from "./imagesImports";
-// import { searchCity } from "./weatherAPP";
+import { showMap } from "./map";
+import { getWeather } from "./weather";
+import { saveCities, readCities } from "./store";
+import { addCity, drawList } from "./cities";
 
 export function createWeatherUI(mainElement, location) {
   let currentLocation;
+  let items = readCities();
   if (location instanceof Error) {
     currentLocation = "Hidden location";
   } else {
@@ -36,37 +40,54 @@ export function createWeatherUI(mainElement, location) {
     </ul>
   </nav>
   `;
-  const ul = mainElement.querySelector("ul");
-  const li = document.createElement("li");
-  li.innerHTML = currentLocation;
-  ul.appendChild(li);
-  console.log("return loc UI", location);
+  items = addCity(items, currentLocation);
+  saveCities(items);
+  drawList(mainElement);
 
+  mainElement.querySelector("input").addEventListener("keypress", searchCity);
   mainElement.querySelector("button").addEventListener("click", searchCity);
+  mainElement.querySelector("ul").addEventListener("click", updateCity);
 
-  async function searchCity() {
-    const apiKey = "20e031b2d73df17283a8750e66d1228e";
-
-    const inputCity = mainElement.querySelector("input").value;
+  async function searchCity(target) {
+    if (target.key !== "Enter" && target.type !== "click") {
+      return;
+    }
+    const input = mainElement.querySelector("input");
+    const inputCity = input.value;
     if (inputCity) {
-      await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&lang=ru`
-      )
-        .then((json) => {
-          console.log("json", json);
-          // location.name = json.name;
-          // location.temperature = Math.round(json.main.temp - 273.15);
-          // location.weather = json.weather[0].main;
-          // const newlocation = [30.2642,59.8944];
-          // changeCenter(map, location);
-        })
-        .catch((error) => {
-          console.log("inputCity Error!!!");
-          alert(error.message);
-          // reject(new Error("Your location is hidden"));
-        });
+      const location = { name: inputCity };
+      getWeather(location).then((location) => {
+        showMap(mainElement, location);
+        updateWeatherUI(mainElement, location);
+        items = addCity(items, location.name);
+        saveCities(items);
+        drawList(mainElement);
+      });
+      input.value = "";
     }
   }
 
+  function updateCity(element) {
+    const target = element.target.closest("li");
+    location.name = target.innerHTML;
+    getWeather(location).then((location) => {
+      showMap(mainElement, location);
+      updateWeatherUI(mainElement, location);
+    });
+  }
+
   return location;
+}
+
+export function updateWeatherUI(mainElement, location) {
+  const currentLocation = location.name;
+  const locationTemperature = location.temperature;
+  const locationWeatherIcon = location.weather;
+  mainElement.querySelector(".location p").innerHTML = `${currentLocation}`;
+  mainElement.querySelector(
+    ".temperature"
+  ).innerHTML = `${locationTemperature}`;
+  mainElement.querySelector(
+    ".img-weather"
+  ).attributes.src.value = `${images[locationWeatherIcon]}`;
 }

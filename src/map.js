@@ -5,20 +5,16 @@ export function showMap(element, location) {
   console.log("location", location);
 
   const mapNode = element.querySelector("#map");
+  if (mapNode.innerHTML) {
+    mapNode.innerHTML = "";
+  }
   const LOCATION = {
     center: [location.longitude, location.latitude],
-    zoom: 12,
+    zoom: 10,
   };
 
   const map = new YMap(mapNode, { location: LOCATION });
+  console.log("MAPA", map);
   map.addChild(new YMapDefaultSchemeLayer());
-}
-
-export function changeCenter(map, newLocation) {
-  map.update({
-    location: {
-      center: newLocation,
-      zoom: 12,
-    },
-  });
+  console.log(map.center);
 }
