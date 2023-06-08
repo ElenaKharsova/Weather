@@ -6,6 +6,4 @@ import Snow from "./images/Snow.png";
 import Thunderstorm from "./images/Thunderstorm.png";
 import Clouds from "./images/Clouds.png";
 
-export {
-  location, Clear, Drizzle, Rain, Snow, Thunderstorm, Clouds
-};
+export { location, Clear, Drizzle, Rain, Snow, Thunderstorm, Clouds };
