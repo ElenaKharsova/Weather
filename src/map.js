@@ -1,9 +1,6 @@
 import { YMap, YMapDefaultSchemeLayer } from "ymaps3";
 
-export function showMap(element, location) {
-  console.log("show map function");
-  console.log("location", location);
-
+export async function showMap(element, location) {
   const mapNode = element.querySelector("#map");
   if (mapNode.innerHTML) {
     mapNode.innerHTML = "";
@@ -14,7 +11,6 @@ export function showMap(element, location) {
   };
 
   const map = new YMap(mapNode, { location: LOCATION });
-  console.log("MAPA", map);
   map.addChild(new YMapDefaultSchemeLayer());
-  console.log(map.center);
+  return location;
 }

@@ -19,7 +19,6 @@ module.exports = {
     "no-param-reassign": "off",
     "no-plusplus": "off",
     "no-shadow": "off",
-    "no-console": "off",
     "no-new": "off",
     "no-undef": "off",
     "no-use-before-define": "off",

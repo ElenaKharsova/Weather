@@ -1,6 +1,4 @@
 export async function getCurrentLocation() {
-  console.log("getCurrentLocation function");
-
   let locationTimeout;
   const options = {
     enableHighAccuracy: true,
@@ -8,6 +6,16 @@ export async function getCurrentLocation() {
     timeout: 3600,
   };
   const location = {};
+
+  if (navigator.geolocation) {
+    locationTimeout = setTimeout(geolocFail, 10000);
+    const position = await getCoordinates();
+    location.latitude = position.coords.latitude;
+    location.longitude = position.coords.longitude;
+  } else {
+    geolocFail();
+  }
+  return location;
 
   function getCoordinates() {
     clearTimeout(locationTimeout);
@@ -20,14 +28,4 @@ export async function getCurrentLocation() {
     clearTimeout(locationTimeout);
     reject(new Error("Your location is hidden"));
   }
-
-  if (navigator.geolocation) {
-    locationTimeout = setTimeout(geolocFail, 10000);
-    const position = await getCoordinates();
-    location.latitude = position.coords.latitude;
-    location.longitude = position.coords.longitude;
-  } else {
-    geolocFail();
-  }
-  return location;
 }
