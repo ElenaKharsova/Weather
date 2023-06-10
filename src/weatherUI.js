@@ -1,7 +1,8 @@
 import * as images from "./imagesImports";
 import { showMap } from "./map";
 import { getWeather } from "./weather";
-import { saveCities } from "./store";
+import { saveCities, readCities } from "./store";
+import { addCity, drawList } from "./cities";
 
 export async function createWeatherUI(mainElement, location) {
   let currentLocation = location.name;
@@ -37,7 +38,7 @@ export async function createWeatherUI(mainElement, location) {
   mainElement.querySelector("button").addEventListener("click", searchCity);
   mainElement.querySelector("ul").addEventListener("click", updateCity);
 
-  async function searchCity(target) {
+  function searchCity(target) {
     if (target.key !== "Enter" && target.type !== "click") {
       return;
     }
@@ -49,13 +50,12 @@ export async function createWeatherUI(mainElement, location) {
         .then((location) => {
           showMap(mainElement, location);
           updateWeatherUI(mainElement, location);
+          let items = readCities();
           items = addCity(items, location.name);
           saveCities(items);
           drawList(mainElement);
         })
-        .catch(() => {
-          alert("You have input Incorrect location!");
-        });
+        .catch(() => alert("You have input icorrect location"));
       input.value = "";
     }
   }

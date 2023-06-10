@@ -7,6 +7,7 @@ export async function getWeather(location) {
       `https://api.openweathermap.org/data/2.5/weather?q=${location.name}&appid=${apiKey}&lang=ru`
     );
     json = await response.json();
+
     location.latitude = json.coord.lat;
     location.longitude = json.coord.lon;
   } else {

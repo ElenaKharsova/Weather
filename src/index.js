@@ -41,7 +41,7 @@ function showWeather(mainElement, location) {
       drawList(mainElement);
     })
     .catch((error) => {
-      alert(error.message);
+      throw error;
     });
 }
 
