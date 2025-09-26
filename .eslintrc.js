@@ -24,5 +24,6 @@ module.exports = {
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
     "no-alert": "off",
+    "no-unused-vars": "off",
   },
 };
