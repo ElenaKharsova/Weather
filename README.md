@@ -1,7 +1,8 @@
-<img src="https://img.shields.io/badge/JS-yellow"> <img src="https://img.shields.io/badge/HTML-orange"> <img src="https://img.shields.io/badge/CSS-purple">
- <img src="https://img.shields.io/badge/Jest-green">
+<img src="https://img.shields.io/badge/HTML-blue"> <img src="https://img.shields.io/badge/CSS-blue">
+<img src="https://img.shields.io/badge/JS-red"> <img src="https://img.shields.io/badge/Jest-green">
 # The weather forecast app
 <ul>
+  <li> Geolocation detection</li>
   <li> Working with API:
     <ul>
       <li> Yandex.maps API 3.0 </li>
