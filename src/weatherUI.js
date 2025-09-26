@@ -71,7 +71,7 @@ export async function createWeatherUI(mainElement, location) {
   return location;
 }
 
-function updateWeatherUI(mainElement, location) {
+export function updateWeatherUI(mainElement, location) {
   const currentLocation = location.name;
   const locationTemperature = location.temperature;
   const locationWeatherIcon = location.weather;

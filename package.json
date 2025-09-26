@@ -29,6 +29,7 @@
     "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@types/jest": "^29.5.0",
+    "@yandex/ymaps3-types": "^0.0.7",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
